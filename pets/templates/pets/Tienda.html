@@ -6,6 +6,25 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="row">
+            {% for Producto in productos %}
+            <div class="col-sm-4">
+                <div class="card">
+                    <img src="{{Producto.imagen}}" alt="{{Producto.nombre_prod}}" class="card-img-top Producto-imagen">
+                    <div class="card-body">
+                        <h5 class="card-title">{{Producto.nombre_prod}}</h5>
+                        <p class="card-text" >{{Producto.precio}}</p>
+                        <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                        <a href="{% url 'edit_prod' Producto.producto_id %}" class="btn btn-primary">...</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <a href="{% url 'reg_prod' %}" class="btn btn-primary">Agregar Producto Nuevo</a>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
